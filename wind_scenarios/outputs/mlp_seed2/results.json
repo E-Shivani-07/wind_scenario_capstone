@@ -1,0 +1,251 @@
+{
+  "config": {
+    "lookback": 24,
+    "horizon": 24,
+    "T": 100,
+    "hidden": 256,
+    "n_layers": 3,
+    "backbone": "mlp",
+    "steps": 3000,
+    "batch_size": 256,
+    "lr": 0.001,
+    "n_scenarios": 20,
+    "train_stride": 3,
+    "test_stride": 25,
+    "max_train": 60000,
+    "max_val": 3000,
+    "max_test": 1000,
+    "val_start": "2016-01-01",
+    "test_start": "2021-01-01",
+    "n_explain": 12,
+    "n_perm": 10,
+    "n_explain_scen": 8,
+    "seed": 2,
+    "log_every": 250,
+    "make_plots": true
+  },
+  "n_windows": {
+    "train": 60000,
+    "val": 1754,
+    "test": 1000
+  },
+  "features": [
+    "wind_speed",
+    "wind_dir_sin",
+    "wind_dir_cos",
+    "t2m",
+    "rh",
+    "sp",
+    "precip_log1p",
+    "ssrd_mj"
+  ],
+  "metrics": {
+    "persistence": {
+      "crps": 0.6374316117065804,
+      "energy_score": 3.8472419195562253,
+      "mae": 0.6374316117065804,
+      "rmse": 0.8892435561815185,
+      "ks": 0.0040000000000000036,
+      "wasserstein": 0.009319491147606964,
+      "acf_distance": 0.002117611099883269,
+      "ramp_wasserstein": 0.003708304327062294,
+      "diversity": 0.0,
+      "spread_skill": null,
+      "calibration_error": null,
+      "coverage_90": null,
+      "power_crps": 0.02688005027415374
+    },
+    "climatology": {
+      "crps": 0.7333657033318974,
+      "energy_score": 4.217802700773846,
+      "mae": 1.0414672529443556,
+      "rmse": 1.3199738789886535,
+      "ks": 0.025814583333333307,
+      "wasserstein": 0.10890067067657364,
+      "acf_distance": 0.007746523562392314,
+      "ramp_wasserstein": 0.013677165895817871,
+      "diversity": 1.678510762726592,
+      "spread_skill": 0.9603988565967341,
+      "calibration_error": 0.003604166666666672,
+      "coverage_90": 0.903,
+      "power_crps": 0.032353844493918385
+    },
+    "ridge_bootstrap": {
+      "crps": 0.4178631166658411,
+      "energy_score": 2.4936873608665127,
+      "mae": 0.5619004910331429,
+      "rmse": 0.7553873436784537,
+      "ks": 0.03897916666666662,
+      "wasserstein": 0.08252072832138657,
+      "acf_distance": 0.0023390458990918037,
+      "ramp_wasserstein": 0.026774266200899056,
+      "diversity": 0.9251436888162881,
+      "spread_skill": 0.899957885372788,
+      "calibration_error": 0.008770833333333339,
+      "coverage_90": 0.8957083333333333,
+      "power_crps": 0.017482168023347847
+    },
+    "diffusion": {
+      "crps": 0.39683241217916443,
+      "energy_score": 2.3799156455881403,
+      "mae": 0.5447623865241975,
+      "rmse": 0.7350350678850012,
+      "ks": 0.022170833333333306,
+      "wasserstein": 0.0490650561966636,
+      "acf_distance": 0.007563157967718448,
+      "ramp_wasserstein": 0.04715810727446547,
+      "diversity": 0.9055690300140434,
+      "spread_skill": 0.8899674895892127,
+      "calibration_error": 0.005375000000000019,
+      "coverage_90": 0.8997916666666667,
+      "power_crps": 0.016959309449864554
+    }
+  },
+  "explainability": {
+    "group_importance_share": {
+      "wind_speed": 0.5579830259857793,
+      "wind_direction": 0.10212205976453889,
+      "temperature": 0.0786747984005435,
+      "humidity": 0.04338338693055521,
+      "pressure": 0.038785011533667334,
+      "precipitation": 0.036091096117238104,
+      "radiation": 0.09589515052582322,
+      "calendar": 0.04706547074185438
+    },
+    "group_mean_abs_shap_ms": {
+      "wind_speed": 0.6977651183965045,
+      "wind_direction": 0.12770497990796306,
+      "temperature": 0.09838387094982248,
+      "humidity": 0.054251496386579535,
+      "pressure": 0.04850116742706954,
+      "precipitation": 0.045132390740405925,
+      "radiation": 0.1199181479438175,
+      "calendar": 0.058855990657705436
+    },
+    "temporal_attribution_share": {
+      "24": 0.023923475414772258,
+      "23": 0.03060833176318216,
+      "22": 0.043192868183802496,
+      "21": 0.020503449132672134,
+      "20": 0.019232201223204206,
+      "19": 0.020895194961398824,
+      "18": 0.052792426409035774,
+      "17": 0.06352407197248912,
+      "16": 0.04521920816630529,
+      "15": 0.03596991243359795,
+      "14": 0.04798563432922919,
+      "13": 0.04533678240040304,
+      "12": 0.015502617243129605,
+      "11": 0.03983563041038263,
+      "10": 0.027807015890075296,
+      "9": 0.035529148292787395,
+      "8": 0.03779928955777785,
+      "7": 0.029646033106428715,
+      "6": 0.058516638099431736,
+      "5": 0.02834550849172554,
+      "4": 0.03775467450322323,
+      "3": 0.055863660151605606,
+      "2": 0.05326140419823723,
+      "1": 0.13095482366510264
+    },
+    "counterfactuals_example_window": {
+      "pressure": {
+        "delta": -500.0,
+        "unit": "Pa (100 Pa = 1 hPa)",
+        "mean_shift": -0.1635158240851311,
+        "wasserstein": 0.17198061086127364
+      },
+      "temperature": {
+        "delta": 2.0,
+        "unit": "K",
+        "mean_shift": 0.11278254312560598,
+        "wasserstein": 0.1199734036786258
+      },
+      "wind_speed": {
+        "delta": 0.2,
+        "unit": "relative change (0.1 = +10 %)",
+        "mean_shift": 0.8942453557432382,
+        "wasserstein": 0.8942453557432382
+      },
+      "humidity": {
+        "delta": 10.0,
+        "unit": "% points",
+        "mean_shift": 0.2708447622550274,
+        "wasserstein": 0.27084476225502807
+      },
+      "radiation": {
+        "delta": -0.3,
+        "unit": "relative change (0.1 = +10 %)",
+        "mean_shift": 0.06141495718336021,
+        "wasserstein": 0.06495287882741776
+      }
+    },
+    "counterfactual_search_pressure_minus_0.2ms": {
+      "group": "pressure",
+      "delta": -700.0,
+      "unit": "Pa (100 Pa = 1 hPa)",
+      "mean_shift": -0.22457195474333602
+    },
+    "explanation_quality": {
+      "shap_deletion_spearman": 0.6507936507936508,
+      "shap_top1_deletion_ratio": 3.164860604260925,
+      "shap_stability_spearman": 0.8333333333333335
+    },
+    "attention_share": null,
+    "attention_per_head": null,
+    "delta_units": {
+      "wind_speed": "relative change (0.1 = +10 %)",
+      "wind_direction": "rotation in degrees",
+      "temperature": "K",
+      "humidity": "% points",
+      "pressure": "Pa (100 Pa = 1 hPa)",
+      "precipitation": "added to log(1+mm/h)",
+      "radiation": "relative change (0.1 = +10 %)"
+    }
+  },
+  "train_history": {
+    "step": [
+      250,
+      500,
+      750,
+      1000,
+      1250,
+      1500,
+      1750,
+      2000,
+      2250,
+      2500,
+      2750,
+      3000
+    ],
+    "train_loss": [
+      0.5385460641384124,
+      0.282769045650959,
+      0.25038703191280365,
+      0.23927673351764678,
+      0.2308557078242302,
+      0.22677004128694533,
+      0.2216407373547554,
+      0.22025407868623734,
+      0.21894179421663285,
+      0.21575698399543763,
+      0.21359221464395522,
+      0.2144912987947464
+    ],
+    "val_loss": [
+      0.31453370302915573,
+      0.26585739105939865,
+      0.24822281673550606,
+      0.240068219602108,
+      0.23553001135587692,
+      0.23129522427916527,
+      0.22739143297076225,
+      0.2254333756864071,
+      0.2226124107837677,
+      0.22133971005678177,
+      0.22060155123472214,
+      0.2204105667769909
+    ]
+  },
+  "runtime_seconds": 15.662744760513306
+}
